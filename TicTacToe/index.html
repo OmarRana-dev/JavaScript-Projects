@@ -1,13 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Tic Tac Toe</title>
 </head>
+
 <body>
-    
+    <header id="headContainer">
+        <h1>Tic Tac Toe</h1>
+    </header>
+    <form id="userInfoForm">
+        <div class="inputContainer">
+            <div class="form__group">
+                <input type="text" class="form__input" id="namePlayer1" placeholder="PLAYER 1" required="" />
+                <label for="namePlayer1" class="form__label">PLAYER 1</label>
+            </div>
+            <div class="form__group">
+                <input type="text" class="form__input" id="namePlayer2" placeholder="PLAYER 2" required="" />
+                <label for="namePlayer2" class="form__label">PLAYER 2</label>
+            </div>
+        </div>
+        <button class="button-29" id="submit-btn" type="submit">Start Game</button>
+    </form>
+    <main id="mainSection">
+        <section id="resultContainer">
+            <div class="result player1Result">
+                <p id="player1Tag">Player1</p>
+                <p id="player1Score">0</p>
+            </div>
+            <div class="result tieResult">
+                <p>Tie</p>
+                <p id="tieScore">0</p>
+            </div>
+            <div class="result player2Result">
+                <p id="player2Tag">Player2</p>
+                <p id="player2Score">0</p>
+            </div>
+        </section>
+        <section id="BoxContainer">
+            <div id="gameBox">
+                <div class="box box1">1</div>
+                <div class="box box2">2</div>
+                <div class="box box3">3</div>
+                <div class="box box4">4</div>
+                <div class="box box5">5</div>
+                <div class="box box6">6</div>
+                <div class="box box7">7</div>
+                <div class="box box8">8</div>
+                <div class="box box9">9</div>
+            </div>
+        </section>
+    </main>
+    <section id="resultPromptContainer">
+        <h1 class="prompt">Player 1 wins!</h1>
+        <button class="prompt-btn button-29">Start Again</button>
+    </section>
+
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
