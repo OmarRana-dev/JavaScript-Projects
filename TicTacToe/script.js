@@ -123,6 +123,8 @@ function winner(currentPlayer, values, winningConditions) {
         }
         if (Match) {
             updateScore()
+            preventDefault()
+            break;
         }
     }
     if (!boardFill(values)) {
