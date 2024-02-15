@@ -62,18 +62,21 @@ const winningConditions = [
     [2, 4, 6] // Diagonals
 ]
 
+const takeColorChangerP1 = document.querySelector(".player1ResultContainer")
+const takeColorChangerP2 = document.querySelector(".player2ResultContainer")
+
+
 // main board container in face of array
-const boardArrayCollection = [...document.querySelectorAll("#gameBox>div")]
-console.log(boardArrayCollection)
+const gameBoard = [...document.querySelectorAll("#gameBox>div")]
 
 // main board function 
-boardArrayCollection.forEach((element) => {
+gameBoard.forEach((element) => {
     element.addEventListener("click", (e) => {
-
+        
         playerTake(e) // fun define the player take and add take in gameplay
 
         var board = []; // hold the all board values for checking who win,
-        for (const i of boardArrayCollection) {
+        for (const i of gameBoard) {
             board.push(i.textContent);
         }
         // console.log(board)
@@ -82,26 +85,8 @@ boardArrayCollection.forEach((element) => {
 });
 
 
-function playerTake(e) {
-    if (player1) {
-        if (valueCheck(e)) {
-            e.target.textContent = "X";
-            currentPlayer = "X"
-            player1 = false;
-            player2 = true;
-        }
-    }
-    else if (player2) {
-        if (valueCheck(e)) {
-            e.target.textContent = "O";
-            currentPlayer = "O"
-            player1 = true;
-            player2 = false;
-        }
-    }
-}
 
-
+// check if value is true for runing this option. is im not overwrite any previous value.
 function valueCheck(e) {
     if (e.target.textContent !== "X" && e.target.textContent !== "O") {
         return true;
@@ -111,7 +96,33 @@ function valueCheck(e) {
     }
 }
 
+// Define the Take of player and add the value
+function playerTake(e) {
+    if (player1) {
+        if (valueCheck(e)) {
+            e.target.textContent = "X";
+            currentPlayer = "X"
+            takeColorChangerP2.style.backgroundColor = "#789461"
+            takeColorChangerP1.style.backgroundColor = "cadetblue"
+            player1 = false;
+            player2 = true;
+        }
+    }
+    else if (player2) {
+        if (valueCheck(e)) {
+            e.target.textContent = "O";
+            currentPlayer = "O"
+            takeColorChangerP1.style.backgroundColor = "#789461"
+            takeColorChangerP2.style.backgroundColor = "cadetblue"
+            player1 = true;
+            player2 = false;
+        }
+    }
+}
 
+
+
+// define the win or tie 
 function winner(currentPlayer, values, winningConditions) {
     for (let condition of winningConditions) {
         let Match = true;
@@ -134,7 +145,7 @@ function winner(currentPlayer, values, winningConditions) {
     }
 }
 
-
+// check is board is fill with values ?
 function boardFill(values) {
     return values.includes("")
 }
@@ -157,19 +168,24 @@ function updateScore() {
     }
 }
 
+
 // Wining Strike Prompter
 const promptBtn = document.querySelector(".prompt-btn")
 const promptGreeting = document.querySelector(".prompt")
 const promptContainer = document.querySelector("#resultPromptContainer")
+const gameBoardBox = document.querySelector("#gameBox")
+
 
 function showWinningPrompt(value) {
     promptContainer.style.display = "flex"
     promptGreeting.textContent = value
+    gameBoardBox.style.pointerEvents = "none"
 }
 
 promptBtn.addEventListener("click", () => {
-    promptContainer.style.display = "none"
-    for (let i in boardArrayCollection) {
-        boardArrayCollection[i].textContent = "";
+    for (let i in gameBoard) {
+        gameBoard[i].textContent = "";
     }
+    promptContainer.style.display = "none"
+    gameBoardBox.style.pointerEvents = "auto"
 })
