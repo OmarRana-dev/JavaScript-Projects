@@ -7,7 +7,6 @@ const player2NameOutput = document.querySelector("#player2Tag");
 // Main Contaianer 
 const mainContaienr = document.querySelector("#mainSection")
 
-
 // Form 
 const form = document.querySelector("#userInfoForm");
 const submit = document.querySelector("#submit-btn");
@@ -62,8 +61,7 @@ const winningConditions = [
     [2, 4, 6] // Diagonals
 ]
 
-const takeColorChangerP1 = document.querySelector(".player1ResultContainer")
-const takeColorChangerP2 = document.querySelector(".player2ResultContainer")
+
 
 
 // main board container in face of array
@@ -72,7 +70,7 @@ const gameBoard = [...document.querySelectorAll("#gameBox>div")]
 // main board function 
 gameBoard.forEach((element) => {
     element.addEventListener("click", (e) => {
-        
+
         playerTake(e) // fun define the player take and add take in gameplay
 
         var board = []; // hold the all board values for checking who win,
@@ -102,8 +100,6 @@ function playerTake(e) {
         if (valueCheck(e)) {
             e.target.textContent = "X";
             currentPlayer = "X"
-            takeColorChangerP2.style.backgroundColor = "#789461"
-            takeColorChangerP1.style.backgroundColor = "cadetblue"
             player1 = false;
             player2 = true;
         }
@@ -112,14 +108,11 @@ function playerTake(e) {
         if (valueCheck(e)) {
             e.target.textContent = "O";
             currentPlayer = "O"
-            takeColorChangerP1.style.backgroundColor = "#789461"
-            takeColorChangerP2.style.backgroundColor = "cadetblue"
             player1 = true;
             player2 = false;
         }
     }
 }
-
 
 
 // define the win or tie 
