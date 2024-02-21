@@ -16,12 +16,15 @@ const submitBtn = document.querySelector("#submit"); // Button to add new book
 const myLibrary = [];
 
 // Book constructor function
-function book(title, auther, genre, pages) {
-    this.title = title;
-    this.auther = auther;
-    this.genre = genre;
-    this.pages = pages;
+class book {
+    constructor(title, auther, genre, pages) {
+        this.title = title;
+        this.auther = auther;
+        this.genre = genre;
+        this.pages = pages
+    }
 }
+
 
 // Initial set of books in the library
 myLibrary.push(new book("The Four Agreements", "Don Miguel Ruiz", "Self Help", 163))
@@ -109,8 +112,3 @@ cancelButton.addEventListener("click", () => {
 // Add initial books to the library
 addBooktoLibrary();
 
-// Implement form submission logic to capture input and update book details
-// ... (code not provided, add your logic here)
-
-// Implement logic to handle book removal based on close button click
-// ... (code already provided in AppendBox function)
