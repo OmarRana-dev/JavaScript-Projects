@@ -42,10 +42,20 @@
                 <input id="auther" type="text" placeholder="Enter Auther Name" required>
             </div>
             <div class="input-box">
-                <input type="text" id="genre" placeholder="Enter Genre: History" required>
+                <input type="text" id="genre" placeholder="Enter Genre: History" list="l1" required>
+                <datalist id="l1">
+                    <option>Self Help</option>
+                    <option>History</option>
+                    <option>Science</option>
+                    <option>Political</option>
+                    <option>Religious</option>
+                    <option>Fiction</option>
+                    <option>Non-Fiction</option>
+                    <option>Biography</option>
+                </datalist>
             </div>
             <div class="input-box">
-                <input id="pages" type="number" placeholder="Enter Pages" required>
+                <input id="pages" type="number" placeholder="Enter Pages" pattern="/.*[0-9].*/" maxlength="7" required>
             </div>
             <div class="input-box buttons">
                 <button class="button-24" id="cancel" type="reset">Cancel</button>
