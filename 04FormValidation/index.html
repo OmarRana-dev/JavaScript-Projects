@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validation</title>
+</head>
+
+<body>
+    <form method="get" class="form" id="form">
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" minlength="8" required>
+            <span class="emailError" aria-live="polite"></span>
+        </div>
+        <div>
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" minlength="4">
+            <span class="countryError" aria-live="polite"></span>
+        </div>
+        <div>
+            <label for="zipCode">Zip Code:</label>
+            <input type="number" id="zipCode" name="zipCode" pattern="[0-9]{5}">
+            <span class="zipCodeError" aria-live="polite"></span>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" minlength="8">
+            <span class="countryError" aria-live="polite"></span>
+        </div>
+        <button>Submit</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
