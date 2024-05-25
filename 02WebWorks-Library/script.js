@@ -36,7 +36,6 @@ myLibrary.push(
 );
 addBooktoLibrary();
 
-
 // Event listener for the "Submit" button
 form.addEventListener("submit", () => {
   // Validate if all required fields have values
@@ -114,6 +113,10 @@ function AppendBox(book, index) {
 // Open the update dialog box when update button is clicked
 updateButton.addEventListener("click", () => {
   dialog.showModal();
+  bookTitle.value = "";
+  bookAuther.value = "";
+  bookGenre.value = "";
+  bookPages.value = "";
 });
 
 // Close the update dialog box when cancel button is clicked
